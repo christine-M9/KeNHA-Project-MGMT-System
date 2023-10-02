@@ -2,9 +2,12 @@ from flask import Flask, render_template, jsonify, request
 from flask_migrate import Migrate
 from forms import RegistrationForm, LoginForm
 from models import db, User, Project, Service, Contact
+from flask_session import Session
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'teejuma99' 
+app.config['SESSION_TYPE'] = 'filesystem'
+Session(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///kenha.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
@@ -18,12 +21,16 @@ db.init_app(app)
 def register():
     form = RegistrationForm()
     if form.validate_on_submit():
+        user = User.query.filter_by(email=form.email.data).first()
+        if user:
+            return 'Email already registered. Please log in.'
         user = User(full_name=form.full_name.data, email=form.email.data)
         user.set_password(form.password.data)
         db.session.add(user)
         db.session.commit()
         return 'Registration successful!'
     return render_template('register.html', title='Register', form=form)
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -161,6 +168,10 @@ def delete_contact(id):
     else:
         return jsonify({'message': 'Contact not found'}), 404
 
+@app.route('/logout')
+def logout():
+    session.clear()
+    return 'Logged out successfully'
 
 
 
