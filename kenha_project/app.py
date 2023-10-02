@@ -1,4 +1,5 @@
 from flask import Flask, render_template, jsonify, request
+from flask import Flask, render_template, jsonify, request
 from flask_migrate import Migrate
 from forms import RegistrationForm, LoginForm
 from models import db, User, Project, Service, Contact
