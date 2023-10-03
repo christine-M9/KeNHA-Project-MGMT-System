@@ -6,6 +6,8 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 db = SQLAlchemy()
 
+
+
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     full_name = db.Column(db.String(100), nullable=False)
@@ -24,6 +26,16 @@ class User(db.Model):
     def check_password(self, password):
         return check_password_hash(self.password, password)
 
+    def serialize(self):
+        return {
+            'id': self.id,
+            'full_name': self.full_name,
+            'email': self.email,
+            
+        }
+
+
+
 class Project(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(100), nullable=False)
@@ -36,6 +48,15 @@ class Project(db.Model):
     def __repr__(self):
         return f"Project('{self.title}', '{self.description}')"
 
+    def serialize(self):
+        return {
+            'id': self.id,
+            'title': self.title,
+            'description': self.description,
+            'author_id': self.author_id,
+            'created_at': self.created_at.strftime('%Y-%m-%d %H:%M:%S') if self.created_at else None,
+        }
+
 class Service(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(100), nullable=False)
@@ -44,6 +65,15 @@ class Service(db.Model):
 
     def __repr__(self):
         return f"Service('{self.title}', '{self.description}')"
+
+    def serialize(self):
+        return {
+            'id': self.id,
+            'title': self.title,
+            'description': self.description,
+            'author_id': self.author_id
+        }
+
 
 class Contact(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -55,6 +85,17 @@ class Contact(db.Model):
 
     def __repr__(self):
         return f"Contact('{self.name}', '{self.email}', '{self.message}')"
+
+    def serialize(self):
+        return {
+            'id': self.id,
+            'name': self.name,
+            'email': self.email,
+            'message': self.message,
+            'author_id': self.author_id,
+            'project_id': self.project_id,
+
+        }
 
 # Defining the many-to-many relationship table
 project_service_association = db.Table('project_service_association',
