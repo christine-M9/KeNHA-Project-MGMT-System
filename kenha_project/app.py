@@ -1,9 +1,11 @@
-from flask import Flask, render_template, jsonify, request
+
 from flask import Flask, render_template, jsonify, request
 from flask_migrate import Migrate
 from forms import RegistrationForm, LoginForm
 from models import db, User, Project, Service, Contact
+
 from flask_session import Session
+
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'teejuma99' 
@@ -169,11 +171,11 @@ def delete_contact(id):
     else:
         return jsonify({'message': 'Contact not found'}), 404
 
+
 @app.route('/logout')
 def logout():
     session.clear()
     return 'Logged out successfully'
-
 
 
 if __name__ == '__main__':
