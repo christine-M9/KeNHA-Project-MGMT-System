@@ -1,4 +1,8 @@
 import React, { useState } from 'react';
+import Typography from '@mui/material/Typography';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
+import Box from '@mui/material/Box';
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -17,6 +21,8 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    // Add your form submission logic here
+    // For example, you can send a POST request with formData to your server
     fetch('/login', {
       method: 'POST',
       headers: {
@@ -39,30 +45,36 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <h1>Login</h1>
+    <Box sx={{ p: 4 }}>
+      <Typography variant="h4" gutterBottom>
+        Login
+      </Typography>
       <form onSubmit={handleSubmit}>
-        <div>
-          <input 
-            type="email" 
-            name="email" 
-            value={formData.email} 
-            onChange={handleChange} 
-            placeholder="Email" 
-          />
-        </div>
-        <div>
-          <input 
-            type="password" 
-            name="password" 
-            value={formData.password} 
-            onChange={handleChange} 
-            placeholder="Password" 
-          />
-        </div>
-        <button type="submit">Login</button>
+        <TextField
+          fullWidth
+          label="Email"
+          variant="outlined"
+          type="email"
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
+          sx={{ mb: 2 }}
+        />
+        <TextField
+          fullWidth
+          label="Password"
+          variant="outlined"
+          type="password"
+          name="password"
+          value={formData.password}
+          onChange={handleChange}
+          sx={{ mb: 2 }}
+        />
+        <Button type="submit" variant="contained" color="primary">
+          Login
+        </Button>
       </form>
-    </div>
+    </Box>
   );
 };
 

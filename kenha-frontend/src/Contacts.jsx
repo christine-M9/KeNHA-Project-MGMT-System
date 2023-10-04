@@ -40,40 +40,42 @@ const Contact = () => {
   };
 
   return (
-    <div>
-      <h1>Contact Us</h1>
+    <div style={{ padding: '20px', maxWidth: '400px', margin: 'auto' }}>
+      <h1 style={{ fontSize: '24px', marginBottom: '10px' }}>Contact Us</h1>
       <form onSubmit={handleSubmit}>
-        <div>
+        <div style={{ marginBottom: '10px' }}>
           <input 
             type="text" 
             name="name" 
             value={formData.name} 
             onChange={handleChange} 
             placeholder="Your Name" 
+            style={{ width: '100%', padding: '8px', fontSize: '16px' }}
           />
         </div>
-        <div>
+        <div style={{ marginBottom: '10px' }}>
           <input 
             type="email" 
             name="email" 
             value={formData.email} 
             onChange={handleChange} 
             placeholder="Your Email" 
+            style={{ width: '100%', padding: '8px', fontSize: '16px' }}
           />
         </div>
-        <div>
+        <div style={{ marginBottom: '10px' }}>
           <textarea
             name="message"
             value={formData.message}
             onChange={handleChange}
             placeholder="Your Message"
+            style={{ width: '100%', padding: '8px', fontSize: '16px', minHeight: '100px' }}
           />
         </div>
-        <button type="submit">Submit</button>
+        <button type="submit" style={{ padding: '8px 16px', fontSize: '16px' }}>Submit</button>
       </form>
     </div>
   );
 };
 
 export default Contact;
-
