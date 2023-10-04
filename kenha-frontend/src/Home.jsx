@@ -1,13 +1,25 @@
-
-
 import React from 'react';
 
-function Home() {
+const Home = () => {
   return (
-    <div className="text-2xl text-center p-10 bg-blue-500 text-white">
-      KENYA NATIONAL HIGHWAYS AUTHORITY
+    <div style={{ 
+      backgroundImage: `url('./images/con.jpeg')`,
+    
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      height: '100vh', 
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      color: 'white',
+      textAlign: 'center'
+    }}>
+      <h1 style={{ fontSize: '3rem', margin: '0', textShadow: '2px 2px 4px rgba(0, 0, 0, 0.7)' }}>
+        KENYA NATIONAL HIGHWAYS AUTHORITY
+      </h1>
     </div>
   );
 }
 
 export default Home;
+

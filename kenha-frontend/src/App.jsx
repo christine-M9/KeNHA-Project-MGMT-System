@@ -1,25 +1,25 @@
 import React from 'react';
+import Header from './Header';
+import Footer from './Footer';
+
 import {
   BrowserRouter as Router,
   Route,
   Routes
 } from 'react-router-dom';
-
 import Register from './Register';
 import Login from './Login';
 import Projects from './Projects';
 import Services from './Services';
 import Contacts from './Contacts';
-import Navbar from './Navbar';
+import Home from './Home';
 
-function Home() {
-  return <div className="text-2xl text-center p-10 bg-blue-500 text-white">KENYA NATIONAL HIGHWAYS AUTHORITY</div>;
-}
+
 
 function App() {
   return (
     <Router>
-      <Navbar />
+      <Header />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<Register />} />
@@ -28,11 +28,14 @@ function App() {
         <Route path="/services" element={<Services />} />
         <Route path="/contacts" element={<Contacts />} />
       </Routes>
+      <Footer />
     </Router>
   );
 }
 
 export default App;
+
+
 
 
 
