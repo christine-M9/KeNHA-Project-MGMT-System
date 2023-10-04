@@ -8,7 +8,7 @@ const LogoPage = () => {
     width: '80%',
     height: '400px', 
     textAlign: 'center',
-    color: 'white'
+    color: 'brown'
   };
 
   return (

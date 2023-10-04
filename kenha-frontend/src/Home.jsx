@@ -3,7 +3,7 @@ import React from 'react';
 const Home = () => {
   return (
     <div style={{ 
-      backgroundImage: `url('./images/con.jpeg')`,
+      backgroundImage: `url('./images/bar.jpeg')`,
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       height: '100vh', 
@@ -26,7 +26,7 @@ const Home = () => {
           }
         `}
       </style>
-      <h1 style={{ fontSize: '3rem', margin: '0', textShadow: '2px 2px 4px rgba(0, 0, 0, 0.7)' }}>
+      <h1 style={{ fontSize: '3rem', margin: '0', textShadow: '2px 2px 4px rgba(0, 0, 0, 0.7)', }}>
         KENYA NATIONAL HIGHWAYS AUTHORITY
       </h1>
     </div>
@@ -34,4 +34,5 @@ const Home = () => {
 }
 
 export default Home;
+
 

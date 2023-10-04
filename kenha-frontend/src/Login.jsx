@@ -35,7 +35,7 @@ const Login = () => {
       return response.json();
     })
     .then(data => {
-      console.log(data); // Handle successful login response
+      console.log(data); 
     })
     .catch(error => {
       console.error('Error:', error);
@@ -46,14 +46,14 @@ const Login = () => {
     <Box 
       sx={{ 
         p: 4,
-        backgroundImage: "url('./images/tee.jpeg')", 
+        backgroundImage: "url('./images/con.jpeg')", 
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         height: '100vh', 
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        textAlign: 'center'
+        textAlign: 'center',      
       }}
     >
       <div>

@@ -5,9 +5,9 @@ import Toolbar from '@mui/material/Toolbar';
 
 function Header() {
   return (
-    <AppBar position="static">
+    <AppBar position="static" style={{ background: 'lightgrey' }}>
       <Toolbar>
-        <div style={{ flexGrow: 1 }}>
+        <div style={{ flexGrow: 1, color: 'brown' }}>
           <h1>KENHA</h1>
         </div>
         <Navbar />
@@ -17,5 +17,6 @@ function Header() {
 }
 
 export default Header;
+
 
 

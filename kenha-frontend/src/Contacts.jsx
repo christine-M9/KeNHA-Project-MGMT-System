@@ -32,7 +32,7 @@ const Contact = () => {
       return response.json();
     })
     .then(data => {
-      console.log(data); // Handle successful submission response
+      console.log(data); 
     })
     .catch(error => {
       console.error('Error:', error);
