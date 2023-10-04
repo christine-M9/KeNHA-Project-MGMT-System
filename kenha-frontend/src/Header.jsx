@@ -8,7 +8,7 @@ function Header() {
     <AppBar position="static" style={{ background: 'lightgrey' }}>
       <Toolbar>
         <div style={{ flexGrow: 1, color: 'brown' }}>
-          <h1>KENHA</h1>
+          <h1 style={{ color: 'brown' }}>KENHA</h1>
         </div>
         <Navbar />
       </Toolbar>
@@ -17,6 +17,10 @@ function Header() {
 }
 
 export default Header;
+
+
+
+
 
 
 
