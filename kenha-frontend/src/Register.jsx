@@ -23,8 +23,6 @@ const Register = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Add your form submission logic here
-    // For example, you can send a POST request with formData to your server
     fetch('/register', {
       method: 'POST',
       headers: {
