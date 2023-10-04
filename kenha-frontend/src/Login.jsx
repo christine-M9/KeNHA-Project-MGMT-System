@@ -43,35 +43,49 @@ const Login = () => {
   };
 
   return (
-    <Box sx={{ p: 4 }}>
-      <Typography variant="h4" gutterBottom>
-        Login
-      </Typography>
-      <form onSubmit={handleSubmit}>
-        <TextField
-          fullWidth
-          label="Email"
-          variant="outlined"
-          type="email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-          sx={{ mb: 2 }}
-        />
-        <TextField
-          fullWidth
-          label="Password"
-          variant="outlined"
-          type="password"
-          name="password"
-          value={formData.password}
-          onChange={handleChange}
-          sx={{ mb: 2 }}
-        />
-        <Button type="submit" variant="contained" color="primary">
+    <Box 
+      sx={{ 
+        p: 4,
+        backgroundImage: "url('./images/tee.jpeg')", 
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        height: '100vh', 
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        textAlign: 'center'
+      }}
+    >
+      <div>
+        <Typography variant="h4" gutterBottom>
           Login
-        </Button>
-      </form>
+        </Typography>
+        <form onSubmit={handleSubmit}>
+          <TextField
+            fullWidth
+            label="Email"
+            variant="outlined"
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            sx={{ mb: 2 }}
+          />
+          <TextField
+            fullWidth
+            label="Password"
+            variant="outlined"
+            type="password"
+            name="password"
+            value={formData.password}
+            onChange={handleChange}
+            sx={{ mb: 2 }}
+          />
+          <Button type="submit" variant="contained" color="primary">
+            Login
+          </Button>
+        </form>
+      </div>
     </Box>
   );
 };

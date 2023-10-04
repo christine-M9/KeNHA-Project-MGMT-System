@@ -30,7 +30,7 @@ const Register = () => {
     <Box 
       sx={{ 
         p: 4,
-        backgroundImage: "url('./images/Road wallpaper.jpeg')",
+        backgroundImage: "url('./images/R.jpeg')",
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         height: '100vh', 
@@ -85,7 +85,7 @@ const Register = () => {
             sx={{ mb: 2 }}
           />
           <Button type="submit" variant="contained" color="primary">
-            Register
+            Sign up
           </Button>
         </form>
       </div>

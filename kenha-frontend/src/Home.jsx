@@ -4,7 +4,6 @@ const Home = () => {
   return (
     <div style={{ 
       backgroundImage: `url('./images/con.jpeg')`,
-    
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       height: '100vh', 
@@ -12,8 +11,21 @@ const Home = () => {
       alignItems: 'center',
       justifyContent: 'center',
       color: 'white',
-      textAlign: 'center'
+      textAlign: 'center',
+      animation: 'fadeIn 3s forwards', 
     }}>
+      <style>
+        {`
+          @keyframes fadeIn {
+            from {
+              opacity: 0;
+            }
+            to {
+              opacity: 1;
+            }
+          }
+        `}
+      </style>
       <h1 style={{ fontSize: '3rem', margin: '0', textShadow: '2px 2px 4px rgba(0, 0, 0, 0.7)' }}>
         KENYA NATIONAL HIGHWAYS AUTHORITY
       </h1>

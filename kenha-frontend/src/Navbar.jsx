@@ -9,10 +9,13 @@ function Navbar() {
         <Button color="inherit">Home</Button>
       </Link>
       <Link to="/register" style={{ textDecoration: 'none', color: 'white' }}>
-        <Button color="inherit">Register</Button>
+        <Button color="inherit">Sign up</Button>
       </Link>
       <Link to="/login" style={{ textDecoration: 'none', color: 'white' }}>
         <Button color="inherit">Login</Button>
+      </Link>
+      <Link to="/logo" style={{ textDecoration: 'none', color: 'white' }}>
+        <Button color="inherit">Logo</Button>
       </Link>
       <Link to="/projects" style={{ textDecoration: 'none', color: 'white' }}>
         <Button color="inherit">Projects</Button>
@@ -28,6 +31,7 @@ function Navbar() {
 }
 
 export default Navbar;
+
 
 
 
