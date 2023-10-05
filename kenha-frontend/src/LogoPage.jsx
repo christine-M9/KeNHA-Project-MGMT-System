@@ -2,7 +2,7 @@ import React from 'react';
 
 const LogoPage = () => {
   const containerStyle = {
-    backgroundImage: 'url(./images/logo.jpg)', 
+    backgroundImage: 'url(/logo.jpg)', 
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     width: '80%',

@@ -13,13 +13,13 @@ function Navbar() {
       <Link to="/" style={buttonStyle}>
         <Button color="inherit">Home</Button>
       </Link>
-      <Link to="/register" style={buttonStyle}>
+      <Link to="/myregister" style={buttonStyle}>
         <Button color="inherit">Sign up</Button>
       </Link>
-      <Link to="/login" style={buttonStyle}>
+      <Link to="/mylogin" style={buttonStyle}>
         <Button color="inherit">Login</Button>
       </Link>
-      <Link to="/logo" style={buttonStyle}>
+      <Link to="/mylogo" style={buttonStyle}>
         <Button color="inherit">Logo</Button>
       </Link>
       <Link to="/projects" style={buttonStyle}>

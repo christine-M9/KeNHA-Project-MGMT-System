@@ -46,7 +46,7 @@ const Login = () => {
     <Box 
       sx={{ 
         p: 4,
-        backgroundImage: "url('./images/con.jpeg')", 
+        backgroundImage: "url('/con.jpeg')", 
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         height: '100vh', 

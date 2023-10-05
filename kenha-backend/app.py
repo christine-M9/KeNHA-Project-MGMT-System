@@ -6,7 +6,7 @@ from models import db, User, Project, Service, Contact
 from flask_session import Session
 
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='../kenha-frontend/dist', template_folder='../kenha-frontend/dist', static_url_path='')
 app.config['SECRET_KEY'] = 'teejuma99' 
 app.config['SESSION_TYPE'] = 'filesystem'
 Session(app)

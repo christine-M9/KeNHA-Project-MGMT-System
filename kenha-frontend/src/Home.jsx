@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 
 const Home = () => {
   const [currentImage, setCurrentImage] = useState(0);
-  const images = ['./images/bar.jpeg', './images/con.jpeg', './images/R.jpeg', './images/oy.jpeg', './images/gra.jpeg', './images/Cons.jpg', './images/Rv.jpeg',]; 
+  // const images = ['/bar.jpeg', '/con.jpeg']; 
+  const images = ['/bar.jpeg', './con.jpeg', '/R.jpeg', '/oy.jpeg', '/gra.jpeg', './Cons.jpg', '/Rv.jpeg',]; 
 
   useEffect(() => {
     const interval = setInterval(() => {

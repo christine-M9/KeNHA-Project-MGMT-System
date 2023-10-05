@@ -30,7 +30,7 @@ const Register = () => {
     <Box 
       sx={{ 
         p: 4,
-        backgroundImage: "url('./images/R.jpeg')",
+        backgroundImage: "url('/R.jpeg')",
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         height: '100vh', 
