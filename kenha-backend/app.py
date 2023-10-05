@@ -2,7 +2,7 @@ from flask import Flask, render_template, jsonify, request
 from flask_migrate import Migrate
 from forms import RegistrationForm, LoginForm
 from models import db, User, Project, Service, Contact
-
+from flask_cors import CORS
 from flask_session import Session
 
 
@@ -16,7 +16,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 migrate = Migrate(app, db)
 db.init_app(app)
-
+CORS(app)
 @app.route('/')
 def index():
     return render_template('index.html') 
