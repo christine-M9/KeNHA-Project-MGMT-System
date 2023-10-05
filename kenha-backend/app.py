@@ -1,6 +1,6 @@
 from flask import Flask, render_template, jsonify, request
 from flask_migrate import Migrate
-from forms import RegistrationForm, LoginForm
+# from forms import RegistrationForm, LoginForm
 from models import db, User, Project, Service, Contact
 from flask_cors import CORS
 from flask_session import Session
@@ -47,22 +47,45 @@ def login():
             return 'Invalid email or password'
     return render_template('login.html', title='Login', form=form)
 
-# Create a new project
-@app.route('/create_project', methods=['POST'])
-def create_project():
-    data = request.get_json()
-    title = data.get('title')
-    description = data.get('description')
-    project = Project(title=title, description=description)
-    db.session.add(project)
-    db.session.commit()
-    return jsonify(project.serialize()), 201
+# # Create a new project
+# @app.route('/projects', methods=['POST'])
+# def create_project():
+#     data = request.get_json()
+#     title = data.get('title')
+#     description = data.get('description')
+#     project = Project(title=title, description=description)
+#     db.session.add(project)
+#     db.session.commit()
+#     return jsonify(project.serialize()), 201
 
 # Retrieve a list of all projects
 @app.route('/projects', methods=['GET'])
 def get_projects():
     projects = Project.query.all()
     return jsonify([project.serialize() for project in projects])
+
+from datetime import datetime
+
+# Create a new project
+@app.route('/projects', methods=['POST'])
+def create_project():
+    data = request.get_json()
+    title = data.get('title')
+    description = data.get('description')
+    author_id = data.get('author_id')  
+    created_at = datetime.utcnow()  
+
+    project = Project(title=title, description=description, author_id=author_id, created_at=created_at)
+    db.session.add(project)
+    db.session.commit()
+    return jsonify(project.serialize()), 201
+
+
+# @app.route('/projects', methods=['GET'])
+# def get_projects():
+#     projects = Project.query.all()
+#     return jsonify([project.serialize() for project in projects])
+
 
 # Update a project
 @app.route('/update_project/<int:id>', methods=['PUT'])
@@ -129,23 +152,48 @@ def delete_service(id):
     else:
         return jsonify({'message': 'Service not found'}), 404
 
+# 
+
 # Create a new contact
-@app.route('/create_contact', methods=['POST'])
+@app.route('/contacts', methods=['POST'])
 def create_contact():
     data = request.get_json()
     name = data.get('name')
     email = data.get('email')
-    message = data.get('message')  
-    contact = Contact(name=name, email=email, message=message)
+    message = data.get('message')
+    author_id = data.get('author_id')  
+    project_id = data.get('project_id')  
+
+    contact = Contact(name=name, email=email, message=message, author_id=author_id, project_id=project_id)
     db.session.add(contact)
     db.session.commit()
     return jsonify(contact.serialize()), 201
+
+
+
+
 
 # Retrieve a list of all contacts
 @app.route('/contacts', methods=['GET'])
 def get_contacts():
     contacts = Contact.query.all()
     return jsonify([contact.serialize() for contact in contacts])
+
+# @app.route('/contacts', methods=['GET', 'POST'])
+# def manage_contacts():
+#     if request.method == 'GET':
+#         contacts = Contact.query.all()
+#         return jsonify([contact.serialize() for contact in contacts])
+#     elif request.method == 'POST':
+#         data = request.get_json()
+#         name = data.get('@appname')
+#         email = data.get('email')
+#         message = data.get('message')  
+#         contact = Contact(name=name, email=email, message=message)
+#         db.session.add(contact)
+#         db.session.commit()
+#         return jsonify(contact.serialize()), 201
+
 
 # Update a contact
 @app.route('/update_contact/<int:id>', methods=['PUT'])
