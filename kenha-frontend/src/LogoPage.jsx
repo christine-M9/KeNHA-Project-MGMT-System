@@ -2,10 +2,10 @@ import React from 'react';
 
 const LogoPage = () => {
   const containerStyle = {
-    backgroundImage: 'url(/logo.jpg)', 
+    backgroundImage:"url('/logo.jpg')", 
     backgroundSize: 'cover',
     backgroundPosition: 'center',
-    width: '80%',
+    width: '100%',
     height: '400px', 
     textAlign: 'center',
     color: 'brown'

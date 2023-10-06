@@ -46,7 +46,7 @@ const Login = () => {
     <Box 
       sx={{ 
         p: 4,
-        backgroundImage: "url('/con.jpeg')", 
+        backgroundImage: "linear-gradient(to right, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/con.jpeg')", 
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         height: '100vh', 
@@ -91,3 +91,4 @@ const Login = () => {
 };
 
 export default Login;
+
