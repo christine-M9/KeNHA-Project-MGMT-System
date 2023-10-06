@@ -1,4 +1,4 @@
-from flask import Flask, render_template, jsonify, request
+from flask import Flask, render_template, jsonify, request, redirect, url_for
 from flask_migrate import Migrate
 # from forms import RegistrationForm, LoginForm
 from models import db, User, Project, Service, Contact
@@ -21,19 +21,33 @@ CORS(app)
 def index():
     return render_template('index.html') 
 
-@app.route('/register', methods=['GET', 'POST'])
+# @app.route('/register', methods=['POST'])
+# def register():
+#     form = RegistrationForm()
+#     if form.validate_on_submit():
+#         user = User.query.filter_by(email=form.email.data).first()
+#         if user:
+#             return jsonify({'message': 'Email already registered. Please log in.'}), 400
+#         user = User(full_name=form.full_name.data, email=form.email.data)
+#         user.set_password(form.password.data)
+#         db.session.add(user)
+#         db.session.commit()
+#         return jsonify({'message': 'Registration successful!'}), 200
+#     return jsonify({'message': 'Invalid form submission.'}), 400
+
+
+@app.route('/register', methods=['POST'])
 def register():
     form = RegistrationForm()
+
     if form.validate_on_submit():
-        user = User.query.filter_by(email=form.email.data).first()
-        if user:
-            return 'Email already registered. Please log in.'
         user = User(full_name=form.full_name.data, email=form.email.data)
         user.set_password(form.password.data)
         db.session.add(user)
         db.session.commit()
-        return 'Registration successful!'
-    return render_template('register.html', title='Register', form=form)
+        return jsonify({'message': 'Registration successful!'}), 200
+
+    return jsonify({'message': 'Invalid form submission.'}), 400
 
 
 @app.route('/login', methods=['GET', 'POST'])
