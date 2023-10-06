@@ -9,6 +9,7 @@ const Contact = () => {
     author_id: '',
     project_id: ''
   });
+  const [showPreviousMessages, setShowPreviousMessages] = useState(false);
 
   useEffect(() => {
     fetch('/contacts')
@@ -63,6 +64,10 @@ const Contact = () => {
     .catch(error => {
       console.error('Error:', error);
     });
+  };
+
+  const togglePreviousMessages = () => {
+    setShowPreviousMessages(prevState => !prevState);
   };
 
   return (
@@ -123,13 +128,20 @@ const Contact = () => {
       </form>
 
       <h1 style={{ fontSize: '24px', marginBottom: '20px' }}>Contact Messages</h1>
-      <ul style={{ listStyle: 'none', padding: 0 }}>
-        {contacts.map(contact => (
-          <li key={contact.id} style={{ marginBottom: '20px', fontSize: '16px', lineHeight: '1.6' }}>
-            <strong>Name:</strong> {contact.name}, <strong>Email:</strong> {contact.email}, <strong>Message:</strong> {contact.message}
-          </li>
-        ))}
-      </ul>
+
+      {contacts.length > 0 && !showPreviousMessages && (
+        <button onClick={togglePreviousMessages}>View Previous Messages</button>
+      )}
+
+      {showPreviousMessages && (
+        <ul style={{ listStyle: 'none', padding: 0 }}>
+          {contacts.map(contact => (
+            <li key={contact.id} style={{ marginBottom: '20px', fontSize: '16px', lineHeight: '1.6' }}>
+              <strong>Name:</strong> {contact.name}, <strong>Email:</strong> {contact.email}, <strong>Message:</strong> {contact.message}
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 };

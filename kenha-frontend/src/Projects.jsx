@@ -27,9 +27,15 @@ const Projects = () => {
           <li style={{ fontSize: '18px', marginBottom: '8px' }} key={project.id}>{project.title}: {project.description}</li>
         ))}
       </ul>
+      <img
+        src="/Rv.jpeg"
+        alt="Project Image"
+        style={{ maxWidth: '100%', height: 'auto', marginTop: '20px' }}
+      />
     </div>
   );
 };
 
 export default Projects;
+
 

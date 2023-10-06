@@ -5,7 +5,7 @@ const Welcome = () => {
     textAlign: 'center',
     marginTop: '50px',
     padding: '20px',
-    backgroundImage: "linear-gradient(to right, rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('/con.jpeg')",
+    backgroundImage: "linear-gradient(to right, rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('/con.jpeg')",
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     color: 'white', 

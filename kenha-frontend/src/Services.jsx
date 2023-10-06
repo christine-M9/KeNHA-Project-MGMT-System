@@ -31,10 +31,15 @@ const Services = () => {
           <li key={service.id}>{service.title}</li>
         ))}
       </ul>
+      <Box sx={{ textAlign: 'center', marginTop: '20px' }}>
+        <img
+          src="/tee.jpeg"
+          alt="Service Image"
+          style={{ maxWidth: '60%', height: 'auto' }}
+        />
+      </Box>
     </Box>
   );
 };
 
 export default Services;
-
-

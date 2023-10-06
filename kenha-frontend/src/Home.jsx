@@ -9,7 +9,9 @@ const Home = () => {
     '/oy.jpeg',
     '/gra.jpeg',
     './Cons.jpg',
-    '/Rv.jpeg'
+    '/Rv.jpeg',
+    '/R4.jpeg',
+    '/tee.jpeg'
   ];
 
   useEffect(() => {
@@ -23,7 +25,7 @@ const Home = () => {
   return (
     <div
       style={{
-        backgroundImage: `linear-gradient(to right, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${images[currentImage]})`,
+        backgroundImage: `linear-gradient(to right, rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(${images[currentImage]})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         height: '100vh',
