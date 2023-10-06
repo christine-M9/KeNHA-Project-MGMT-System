@@ -11,16 +11,10 @@ function Navbar() {
   return (
     <div style={{ width: '100%', textAlign: 'center' }}>
       <Link to="/" style={buttonStyle}>
-        <Button color="inherit">Home</Button>
+        <Button color="inherit">Kenha</Button>
       </Link>
-      <Link to="/myregister" style={buttonStyle}>
-        <Button color="inherit">Sign up</Button>
-      </Link>
-      <Link to="/mylogin" style={buttonStyle}>
-        <Button color="inherit">Login</Button>
-      </Link>
-      <Link to="/mylogo" style={buttonStyle}>
-        <Button color="inherit">Logo</Button>
+      <Link to="/home" style={buttonStyle}>
+        <Button color="inherit">Gallery</Button>
       </Link>
       <Link to="/projects" style={buttonStyle}>
         <Button color="inherit">Projects</Button>
@@ -31,11 +25,22 @@ function Navbar() {
       <Link to="/contacts" style={buttonStyle}>
         <Button color="inherit">Contacts</Button>
       </Link>
+      <Link to="/mylogo" style={buttonStyle}>
+        <Button color="inherit">Logo</Button>
+      </Link>
+      <Link to="/myregister" style={buttonStyle}>
+        <Button color="inherit">Sign Up</Button>
+      </Link>
+      <Link to="/mylogin" style={buttonStyle}>
+        <Button color="inherit">Login</Button>
+        </Link>
+      
     </div>
   );
 }
 
 export default Navbar;
+
 
 
 

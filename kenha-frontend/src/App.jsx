@@ -15,6 +15,7 @@ import Contacts from './Contacts';
 import Home from './Home';
 import Header from './Header';
 import Footer from './Footer';
+import Welcome from './Welcome';
 
 function App() {
   return (
@@ -22,7 +23,8 @@ function App() {
       <Header />
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Welcome/>} />
+        <Route path="/home" element={<Home />} />
         <Route path="/myregister" element={<Register />} />
         <Route path="/mylogin" element={<Login />} />
         <Route path="/mylogo" element={<LogoPage />} /> 
@@ -36,6 +38,8 @@ function App() {
 }
 
 export default App;
+
+
 
 
 
