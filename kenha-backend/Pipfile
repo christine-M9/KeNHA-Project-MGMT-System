@@ -12,6 +12,11 @@ email-validator = "*"
 flask-session = "*"
 faker = "*"
 flask-cors = "*"
+gunicorn = "*"
+psycopg2-binary = "*"
+sqlalchemy-serializer = "*"
+flask-restful = "*"
+cors = "*"
 
 [dev-packages]
 
