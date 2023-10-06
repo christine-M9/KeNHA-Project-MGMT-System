@@ -20,11 +20,11 @@ const Projects = () => {
   }, []);
 
   return (
-    <div>
-      <h1>Our Projects</h1>
-      <ul>
+    <div style={{ maxWidth: '800px', margin: '0 auto', padding: '20px', backgroundColor: '#f9f9f9', borderRadius: '8px', boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)' }}>
+      <h1 style={{ fontSize: '24px', marginBottom: '10px' }}>Our Projects</h1>
+      <ul style={{ listStyle: 'none', padding: '0' }}>
         {projects.map(project => (
-          <li key={project.id}>{project.name}</li>
+          <li style={{ fontSize: '18px', marginBottom: '8px' }} key={project.id}>{project.title}: {project.description}</li>
         ))}
       </ul>
     </div>
@@ -32,3 +32,4 @@ const Projects = () => {
 };
 
 export default Projects;
+

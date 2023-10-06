@@ -58,33 +58,78 @@ def login():
 #     db.session.commit()
 #     return jsonify(project.serialize()), 201
 
-# Retrieve a list of all projects
-@app.route('/projects', methods=['GET'])
-def get_projects():
-    projects = Project.query.all()
-    return jsonify([project.serialize() for project in projects])
+# # Retrieve a list of all projects
+# @app.route('/projects', methods=['GET'])
+# def get_projects():
+#     projects = Project.query.all()
+#     return jsonify([project.serialize() for project in projects])
 
 from datetime import datetime
 
-# Create a new project
-@app.route('/projects', methods=['POST'])
-def create_project():
-    data = request.get_json()
-    title = data.get('title')
-    description = data.get('description')
-    author_id = data.get('author_id')  
-    created_at = datetime.utcnow()  
+# # Create a new project
+# @app.route('/projects', methods=['POST'])
+# def create_project():
+#     data = request.get_json()
+#     title = data.get('title')
+#     description = data.get('description')
+#     author_id = data.get('author_id')  
+#     created_at = datetime.utcnow()  
 
-    project = Project(title=title, description=description, author_id=author_id, created_at=created_at)
-    db.session.add(project)
-    db.session.commit()
-    return jsonify(project.serialize()), 201
+#     project = Project(title=title, description=description, author_id=author_id, created_at=created_at)
+#     db.session.add(project)
+#     db.session.commit()
+#     return jsonify(project.serialize()), 201
 
+
+# # Retrieve a list of all projects
+# @app.route('/projects', methods=['GET'])
+# def get_projects():
+#     projects = Project.query.all()
+#     return jsonify([project.serialize() for project in projects])
+
+# # Create a new project or retrieve a list of all projects
+# @app.route('/projects', methods=['GET', 'POST'])
+# def manage_projects():
+#     if request.method == 'POST':
+#         data = request.get_json()
+#         title = data.get('title')
+#         description = data.get('description')
+#         author_id = data.get('author_id')  
+#         created_at = datetime.utcnow()  
+
+#         project = Project(title=title, description=description, author_id=author_id, created_at=created_at)
+#         db.session.add(project)
+#         db.session.commit()
+#         return jsonify(project.serialize()), 201
+
+#     elif request.method == 'GET':
+#         projects = Project.query.all()
+#         return jsonify([project.serialize() for project in projects])
 
 # @app.route('/projects', methods=['GET'])
 # def get_projects():
 #     projects = Project.query.all()
 #     return jsonify([project.serialize() for project in projects])
+
+@app.route('/projects', methods=['GET', 'POST'])
+def manage_projects():
+    if request.method == 'POST':
+        data = request.get_json()
+        title = data.get('title')
+        description = data.get('description')
+        author_id = data.get('author_id')  
+        created_at = data.get('created_at')  
+
+        project = Project(title=title, description=description, author_id=author_id, created_at=created_at)
+        db.session.add(project)
+        db.session.commit()
+        return jsonify(project.serialize()), 201
+
+    elif request.method == 'GET':
+        projects = Project.query.all()
+        return jsonify([project.serialize() for project in projects])
+
+
 
 
 # Update a project
