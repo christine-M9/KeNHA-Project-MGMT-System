@@ -1,3 +1,4 @@
+import os
 from flask import Flask, render_template, jsonify, request, redirect, url_for
 from flask_migrate import Migrate
 # from forms import RegistrationForm, LoginForm
@@ -10,7 +11,7 @@ app = Flask(__name__, static_folder='../kenha-frontend/dist', template_folder='.
 app.config['SECRET_KEY'] = 'teejuma99' 
 app.config['SESSION_TYPE'] = 'filesystem'
 Session(app)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///kenha.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URI')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 

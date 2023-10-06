@@ -6,7 +6,10 @@ fake = Faker()
 
 # Function to generate random user data
 def generate_fake_user():
-    return User(full_name=fake.name(), email=fake.email(), password=fake.password())
+    full_name = fake.name()[:100]  
+    email = fake.email()[:100]  
+    password = fake.password()
+    return User(full_name=full_name, email=email, password=password)
 
 # Function to generate random project data
 def generate_fake_project(user):
