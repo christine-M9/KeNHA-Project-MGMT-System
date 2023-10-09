@@ -1,4 +1,4 @@
-from kenha_backend.app import Flask
+from flask import Flask
 
 
 app = Flask(__name__)
