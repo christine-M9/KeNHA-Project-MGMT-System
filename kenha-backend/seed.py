@@ -1,3 +1,4 @@
+
 from faker import Faker
 from models import db, User, Project, Service, Contact
 from app import app

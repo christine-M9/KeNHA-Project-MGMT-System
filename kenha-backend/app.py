@@ -1,22 +1,29 @@
 import os
+
 from flask import Flask, render_template, jsonify, request, redirect, url_for
+
 from flask_migrate import Migrate
-# from forms import RegistrationForm, LoginForm
+#from forms import RegistrationForm, LoginForm
 from models import db, User, Project, Service, Contact
 from flask_cors import CORS
 from flask_session import Session
 
 
 app = Flask(__name__, static_folder='../kenha-frontend/dist', template_folder='../kenha-frontend/dist', static_url_path='')
+#db = SQLAlchemy(app)
+
 app.config['SECRET_KEY'] = 'teejuma99' 
 app.config['SESSION_TYPE'] = 'filesystem'
 Session(app)
+
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URI')
+
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 
-migrate = Migrate(app, db)
 db.init_app(app)
+migrate = Migrate(app, db)
+#db.init_app(app)
 CORS(app)
 @app.route('/')
 def index():
