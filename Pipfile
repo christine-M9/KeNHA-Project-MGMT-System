@@ -12,6 +12,7 @@ flask-sqlalchemy = "*"
 sqlalchemy-serializer = "*"
 flask-restful = "*"
 flask-cors = "*"
+flask-session = "*"
 
 [dev-packages]
 
