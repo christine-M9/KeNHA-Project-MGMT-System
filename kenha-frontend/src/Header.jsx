@@ -8,7 +8,7 @@ function Header() {
     <AppBar position="static" style={{ background: 'grey' }}>
       <Toolbar>
         <div style={{ flexGrow: 1, color: 'brown' }}>
-          <h1 style={{ color: 'brown' }}>KENHA</h1>
+          <h1 style={{ color: 'yellow' }}>KENHA</h1>
         </div>
         <Navbar />
       </Toolbar>
