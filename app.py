@@ -2,7 +2,7 @@ import os
 
 from flask import Flask, render_template, jsonify, request, redirect, url_for
 
-from flask_migrate import Migrate
+#from flask_migrate import Migrate
 #from forms import RegistrationForm, LoginForm
 from models import db, User, Project, Service, Contact
 from flask_cors import CORS
